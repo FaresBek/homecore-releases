@@ -24,4 +24,6 @@ HomeCore versions and Android version codes increase independently of the Panel 
 
 Source: [FaresBek/stips-panel](https://github.com/FaresBek/stips-panel). Source tags use `hub-vX.Y.Z`. See [release maintenance instructions](https://github.com/FaresBek/stips-panel/blob/main/docs/HOMECORE_RELEASING.md) for version bump commands and the signing/publishing workflow.
 
+The release repository publisher verifies the APK in `release/` against its manifest, production package and pinned signing certificate, then publishes both assets using GitHub's repository token. Published versions cannot be replaced, and both version numbers must increase. It uses an already-signed APK and never handles the private signing key.
+
 No signing keystore, passwords or device local keys belong in this public repository.
