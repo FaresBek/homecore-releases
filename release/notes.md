@@ -1,14 +1,24 @@
-HomeCore 0.1.1 (Android version code 2)
+Tuya QR login is now available directly in HomeCore without a Tuya developer account or cloud project. HomeCore retrieves account device keys, matches device IDs to LAN addresses, and keeps manual local-key entry available.
 
-- Select a Tuya or Sonoff device found on your network to enter its local key and add it. The device ID and IP are filled in automatically.
-- Settings loads core controls, HomeKit and activity separately, with a retry action for a failed section. A failed request while the portal is live no longer claims the hub is unreachable.
-- Fixed the IR integration SQLite UNIQUE constraint crash caused by colliding remote/button names, preserving existing dashboard targets and user names.
-- Native IRU1 setup imports devices, rooms and saved TV/AC remotes through your IR account.
-- Simplified eWeLink account setup and Tuya project import can retrieve keys and match local addresses when the required vendor credentials are configured.
-- Production releases now use independent HomeCore semantic versions, increasing Android version codes and the pinned HomeCore signing certificate.
+## Set up Tuya
 
-Production package: app.homecore. Install this APK alongside the earlier app.homecore.test build. Cloud login still requires the appropriate vendor developer credentials; adding LAN devices with an existing local key does not.
+1. Update HomeCore and open Integrations → Tuya LAN.
+2. In Smart Life or Tuya Smart, open Me → Settings → Account and Security → User Code.
+3. Enter that code in HomeCore, select the matching phone app, and show the QR.
+4. Use + → Scan in that app and confirm login. Display the QR on the hub or another browser screen when using one phone.
+5. Select the matched devices and add them. Devices must already belong to the authorized account.
 
-The APK is signed with the supplied keycore production key. Future updates are checked through Settings > Updates using the accompanying homecore-release.json manifest.
+For a device still marked Needs a key, select its checkbox and enter its 16-byte local key. Manual setup works without cloud sign-in. Refresh keys retrieves changed account keys for added devices.
 
-Build, lint, unit tests and protocol-routing tests pass. Physical TV/AC response still needs verification on your own local network.
+The default QR connection uses Home Assistant's public Tuya sharing registration, following Tuya Local Key. The confirmation may identify Home Assistant. This relies on that registration and Tuya's service remaining available; custom client IDs and manual setup remain supported. Initial authorization and key refresh use the internet; device control uses the local network.
+
+## Changes and validation
+
+- Corrected the registration schema and Smart Life / Tuya Smart QR formats.
+- Kept QR setup visible on desktop and phone browsers.
+- Saved authorized registration with the encrypted session, including support for both endpoint spellings. Added-device keys remain after account sign-out.
+- HomeCore 0.1.2, Android version code 3, production package app.homecore, signed with the same production key as 0.1.1.
+- Android unit checks, Python tool checks, app lint/build and Chromium desktop/phone setup flows passed. A real Tuya account and physical devices still need testing on the hub's LAN.
+
+Source: https://github.com/FaresBek/stips-panel/pull/40
+Protocol references: https://github.com/vineetchoudhary/tuya-local-key and https://github.com/tuya/tuya-device-sharing-sdk

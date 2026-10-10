@@ -2,19 +2,19 @@
 
 Signed Android production releases for HomeCore, with local smart-home integrations and its browser portal.
 
-## Current release: 0.1.1
+## Current release: 0.1.2
 
-- [Download HomeCore 0.1.1 APK](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.1/homecore-0.1.1-release.apk)
-- [Release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.1)
-- [Update manifest](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.1/homecore-release.json)
+- [Download HomeCore 0.1.2 APK](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.2/homecore-0.1.2-release.apk)
+- [Release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.2)
+- [Update manifest](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.2/homecore-release.json)
 
-Android package: `app.homecore`. Android version code: `2`.
+Android package: `app.homecore`. Android version code: `3`. This updates production 0.1.1 using the same package and signing certificate.
 
-This production package installs alongside the earlier `app.homecore.test` build. Android treats them as separate apps. Future production updates use the same package and signing certificate.
+Tuya QR setup is available without a Tuya developer account or cloud project. Enter your Smart Life or Tuya Smart User Code, show a QR, scan and confirm in the selected app, then add devices whose account keys match their LAN addresses. The default uses Home Assistant's public Tuya sharing registration, as used by Tuya Local Key. Internet access is required for authorization and key refresh; commands use the LAN.
 
-Tuya and Sonoff devices found on your network can be added by selecting a device and entering its local key. The discovered ID and address are filled in automatically. Vendor developer credentials are only needed for the supported cloud account setup routes.
+Tuya and Sonoff devices found on your network can also be added by selecting a device and entering its local key. The discovered ID and address are filled in automatically. Sonoff cloud login requires configured eWeLink application credentials.
 
-The IR integration includes a fix for duplicate entity IDs, and Settings sections load independently with retry controls.
+The earlier `app.homecore.test` build remains a separate installation. Physical-device and account checks must be performed on the hub's local network.
 
 ## Updates and versioning
 
