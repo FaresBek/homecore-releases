@@ -47,8 +47,8 @@ jobs:
           expected = f"name='app.homecore' versionCode='{manifest['version_code']}' versionName='{version}'"
           assert expected in badge and 'application-debuggable' not in badge
           certs = subprocess.check_output([str(build_tools/'apksigner'), 'verify', '--print-certs', str(apk)], text=True)
-          cert = re.search(r'Signer #1 certificate SHA-256 digest: (\w+)', certs).group(1).lower()
-          assert cert == '6a73e57fcf3c3ac46a4814a3f711c888e0966114af6f2b5d5aa966cc5b208325'
+          digests = re.findall(r'certificate SHA-256 digest:\s*([0-9a-fA-F]{64})', certs)
+          assert digests and {cert.lower() for cert in digests} == {'6a73e57fcf3c3ac46a4814a3f711c888e0966114af6f2b5d5aa966cc5b208325'}, 'Unexpected production signer'
           subprocess.run([str(build_tools/'zipalign'), '-c', '-P', '16', '4', str(apk)], check=True)
           with open(os.environ['GITHUB_ENV'], 'a') as out:
               out.write(f'RELEASE_VERSION={version}\nAPK_PATH={apk}\n')

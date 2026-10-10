@@ -10,3 +10,5 @@ HomeCore 0.1.1 (Android version code 2)
 Production package: app.homecore. Install this APK alongside the earlier app.homecore.test build. Cloud login still requires the appropriate vendor developer credentials; adding LAN devices with an existing local key does not.
 
 The APK is signed with the supplied keycore production key. Future updates are checked through Settings > Updates using the accompanying homecore-release.json manifest.
+
+Build, lint, unit tests and protocol-routing tests pass. Physical TV/AC response still needs verification on your own local network.
