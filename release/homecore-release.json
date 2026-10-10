@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "package_name": "app.homecore",
-  "version_name": "0.1.2",
-  "version_code": 3,
-  "apk_asset": "homecore-0.1.2-release.apk",
-  "sha256": "62ae3f98c9d7cf6ff0826ad8ce4d08bd68433c1bb964c9980cd31ea05de44ed5",
-  "size_bytes": 8768574,
+  "version_name": "0.1.3",
+  "version_code": 4,
+  "apk_asset": "homecore-0.1.3-release.apk",
+  "sha256": "1f78abd8fa7a2d87aa1c4004d4aab551bef8992709af93698f95e83524811614",
+  "size_bytes": 8801342,
   "source_repository": "FaresBek/stips-panel",
-  "source_commit": "d2e31553f749bc2418f8c8d1ca8e3be5c9d7a317"
+  "source_commit": "a12ec5a134c1cd9de7656f2cb95dc321df07c62d"
 }
