@@ -1,13 +1,18 @@
-HomeCore 0.1.3 adds editable Tuya controls and improves integration setup in the app and browser portal.
+HomeCore 0.1.4 adds device-aware automations with editable steps on the panel and web portal.
 
-- Writable numeric data points use sliders with the device's range, step and unit; writable enum data points use dropdowns. Presence, illuminance and other read-only values remain sensors.
-- Verified cloud mappings hide old duplicate/offline DP rows and unrecognized raw fields. Numeric and choice commands are validated before being sent locally.
-- Settings opens Integrations directly. Enabled cards expand; disabled cards collapse.
-- The portal at your hub's IP:8080 keeps discovered devices current without resetting selections. Use Enter key or Add device beside a device; fetching and adding show progress.
-- Tuya QR login still retrieves keys and matches device IDs to LAN addresses automatically. Manual local-key setup remains available.
+- Start from eight ideas, or create an automation from a device. Pickers search rooms, devices and controls.
+- New triggers include attributes, sunrise/sunset offsets, intervals, button/events, availability and hub startup. Sun times are calculated locally using the hub location.
+- Conditions include multiple states, attributes, sun windows, weekdays and nested and/or/not groups.
+- Actions include device controls, wait-until, repeats, if/then/else, panel notices and enabling/disabling/running another automation.
+- Run now executes actions only. Last-run results show success or the failed step. Existing saved automations remain compatible.
 
-After updating, reload the browser portal. For existing Tuya devices, use Integrations → Tuya LAN → Refresh keys to retrieve the latest names, permissions and control limits. Devices must be reachable from the hub's local network. If a dashboard references a retired raw sensor DP, select its replacement editable entity.
+The panel and browser use shared capabilities and validation for sliders, options, device states and action parameters. Panel itself is unchanged.
 
-Production package: app.homecore. Version: 0.1.3. Android version code: 4. Signed with the same production certificate as earlier HomeCore releases; install over your existing production app.
+IRU1 command events represent commands successfully sent by HomeCore. Physical handheld IR presses require a receiver that reports incoming events. Tuya/Sonoff repeated identical polls cannot establish another press without a changed event marker.
 
-Validation includes Android unit tests/lint/builds, portal regression tests, Home Assistant editor compatibility, release identity/branding checks, and Chromium tests at desktop and phone sizes. Device commands still need verification on the installer's physical LAN.
+Production package: app.homecore. Version: 0.1.4. Android version code: 5. Signed with the existing HomeCore production certificate. Install over the existing production app to retain settings and devices.
+
+Verified source: https://github.com/FaresBek/stips-panel/commit/4f534297d58c39f89f8cfe65b25041e07d981d05
+PR and panel test instructions: https://github.com/FaresBek/stips-panel/pull/42
+
+Validation: 446 Android unit tests, lint, debug/release builds, both branding checks, 19 Python checks and Chromium automation forms at 480×480 and 1280×800. The merged source tree matches the tested APK source exactly. Physical device behavior and Z4 resource use require on-device checks.
