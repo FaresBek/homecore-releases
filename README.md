@@ -2,15 +2,17 @@
 
 Signed Android production releases for HomeCore, with local smart-home integrations and its browser portal.
 
-## Current release: 0.1.4
+## Current release: 0.1.5
 
-- [Download HomeCore 0.1.4 APK](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.4/homecore-0.1.4-release.apk)
-- [Release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.4)
-- [Update manifest](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.4/homecore-release.json)
+- [Download HomeCore 0.1.5 APK](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.5/homecore-0.1.5-release.apk)
+- [Release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.5)
+- [Update manifest](https://github.com/FaresBek/homecore-releases/releases/download/v0.1.5/homecore-release.json)
 
-Android package: `app.homecore`. Android version code: `5`. This updates production 0.1.3 using the same package and signing certificate.
+Android package: `app.homecore`. Android version code: `6`. This updates production 0.1.4 using the same package and signing certificate.
 
-Automations support device-aware steps, eight starter ideas, sun/location settings, button events, repeats, if/else, panel notices and last-run results. Both the panel and web portal use the same capabilities and validation. Existing saved automations are preserved. See the [release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.4) for event limitations and test instructions.
+This release fixes Main hub setup and restart on Android 10 screens by using database writes compatible with their SQLite engine. Install over the existing HomeCore app to retain the installer PIN and saved setup; no data reset is needed.
+
+Automations support device-aware steps, eight starter ideas, sun/location settings, button events, repeats, if/else, panel notices and last-run results. Both the panel and web portal use the same capabilities and validation. Existing saved automations are preserved. See the [release notes](https://github.com/FaresBek/homecore-releases/releases/tag/v0.1.5) for event limitations and test instructions.
 
 Tuya numeric controls and choices are editable using the device’s reported write permissions, ranges, steps and options. Read-only status values stay as sensors. Verified account mappings hide superseded raw DP rows. After updating, reload the browser portal and use Tuya **Refresh keys** for current names and control metadata.
 
